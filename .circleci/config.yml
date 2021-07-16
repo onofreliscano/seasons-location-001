@@ -1,0 +1,35 @@
+# # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+# version: 2.1
+# # Use a package of configuration called an orb.
+# orbs:
+#   # Declare a dependency on the welcome-orb
+#   welcome: circleci/welcome-orb@0.4.1
+#   react: thefrontside/react@0.2.0
+#   node: circleci/node@3.0.0
+# # Orchestrate or schedule a set of jobs
+# workflows:
+#   # Name the workflow "welcome"
+#   push:
+#     #welcome:
+#     #  - welcome/run
+#     # Run the welcome/run job in its own container
+#     jobs:
+#       - react/install
+
+
+version: '2.1'
+orbs:
+  node: circleci/node@4.5.1
+jobs:
+  install-node-example:
+    # docker
+      # - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - node/install
+          # install-yarn: true
+      - run: node --version
+workflows:
+  test_my_app:
+    jobs:
+      - install-node-example
