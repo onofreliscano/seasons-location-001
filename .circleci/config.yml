@@ -1,0 +1,12 @@
+version: 2.1
+
+orbs: 
+  node: circleci/node@4.1
+
+jobs:
+  steps:
+    - checkout
+    - mode/install-packages
+    - run:
+        name: Run tests
+        command: npm run start 
