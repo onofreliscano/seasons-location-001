@@ -22,8 +22,8 @@ orbs:
   node: circleci/node@4.5.1
 jobs:
   install-node-example:
-    # docker
-      # - image: 'cimg/base:stable'
+    docker:
+      - image: 'cimg/base:stable'
     steps:
       - checkout
       - node/install
